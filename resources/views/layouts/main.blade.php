@@ -25,7 +25,7 @@
 
     @include('partials.head')
     
-    <title>ALC | {}</title>
+    <title>Kampung Buricak Burinong</title>
 </head>
 
 <body>
