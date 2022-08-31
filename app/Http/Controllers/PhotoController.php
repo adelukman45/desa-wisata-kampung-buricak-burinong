@@ -17,7 +17,7 @@ class PhotoController extends Controller
     public function index()
     {
         return view('dashboard.photo.index', [
-            'posts' => Photo::paginate(1),
+            'posts' => Photo::paginate(3),
             'wsts' => Wst::all()
         ]);
     }
@@ -189,6 +189,10 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        if ($photo->image) {
+            Storage::delete($photo->image);
+        }
+        Photo::destroy($photo->id);
+        return redirect('dashboard/photos')->with('success', 'Data berhasil dihapus!');
     }
 }

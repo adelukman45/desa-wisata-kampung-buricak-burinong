@@ -19,7 +19,7 @@ class DashboardPostController extends Controller
     public function index()
     {
         return view('dashboard.posts.index', [
-            'posts' => Wst::paginate(1)
+            'posts' => Wst::paginate(5)
         ]);
     }
 
@@ -151,7 +151,7 @@ class DashboardPostController extends Controller
         elseif($request->link == null) {
            $rules = [
             'name' => 'required|max:255',
-            'slug' => 'required|unique:wsts',
+            // 'slug' => 'required|unique:wsts',
             'image' => 'required|image|file|max:3072',
             'alamat' => 'required',
             'desc' => 'required'
@@ -160,7 +160,7 @@ class DashboardPostController extends Controller
     else{
        $rules = [
             'name' => 'required|max:255',
-            'slug' => 'required|unique:wsts',
+            // 'slug' => 'required|unique:wsts',
             'link' => 'required|max:255|url',
             'alamat' => 'required',
             'desc' => 'required'
@@ -199,7 +199,7 @@ class DashboardPostController extends Controller
             Storage::delete($post->image);
         }
         Wst::destroy($post->id);
-        return redirect('dashboard/posts')->with('success', 'PData berhasil dihapus!');
+        return redirect('dashboard/posts')->with('success', 'Data berhasil dihapus!');
     }
 
     public function checkSlug(Request $request)

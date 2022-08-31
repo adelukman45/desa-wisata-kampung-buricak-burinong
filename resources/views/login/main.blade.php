@@ -28,14 +28,13 @@
 
     @include('partials.head')
     
-    <title>Kampung Buricak Burinong</title>
+    <title>Login</title>
 </head>
 
-<body>
+<body class="bg-dark">
     
     {{-- <div class="container mt-4"> --}}
         @yield('container')
-        @include('partials.footer')
     {{-- </div> --}}
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

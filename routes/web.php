@@ -21,8 +21,8 @@ use App\Http\Controllers\WstController;
 */
 
 Route::get('/', [WstController::class, 'index']);
-Route::get('detail/{slug}', [WstController::class, 'show']);
 
+Route::get('detail/{slug}', [WstController::class, 'show']);
 Route::get('/sejarah', function(){
     return view('sejarah');
 });

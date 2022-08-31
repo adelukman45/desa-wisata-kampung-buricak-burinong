@@ -18,14 +18,15 @@ class WstController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $wst= Wst::where('slug', $id)->first();
-        $photo= Photo::where('slug', $id)->get();
+        $wst= Wst::where('slug', $slug)->first();
+        $cek= Photo::where('slug', $slug)->first();
+        $photo= Photo::where('slug', $slug)->get();
         return view('detail', [
-            'title' => 'Single Post',
             'post' => $wst,
-            'photo' => $photo,
+            'cek' => $cek,
+            'photo' => $photo
         ]);
     }
 }

@@ -9208,16 +9208,16 @@ textarea.form-control-lg {
   position: relative; }
 
 .logo {
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 20px;
+  color: rgba(255, 255, 255) !important;
   font-weight: 500; }
   .logo:hover {
-    color: #fff !important; }
+    color: #EEEEEE !important; }
 
 .site-nav {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   padding-bottom: 20px;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 9;
   width: 100%; }
@@ -9234,14 +9234,15 @@ textarea.form-control-lg {
         padding: 10px 15px;
         display: inline-block;
         text-decoration: none !important;
-        color: rgba(255, 255, 255, 0.5); }
+        color: rgba(255, 255, 255); }
         .site-nav .site-navigation .site-menu > li > a:hover {
-          color: #fff; }
+          color: #ddd; }
       .site-nav .site-navigation .site-menu > li.cta-button a {
         padding: 6px 20px;
         border: 2px solid rgba(0, 0, 0, 0.1);
         color: #000;
-        border-radius: 30px; }
+        border-radius: 30px; 
+      }
         .site-nav .site-navigation .site-menu > li.cta-button a:hover {
           color: #000;
           background: #00204a;
@@ -9536,7 +9537,7 @@ textarea.form-control-lg {
 
 /* Burger */
 .burger {
-  width: 28px;
+  width: 26px;
   height: 32px;
   cursor: pointer;
   position: relative; }
@@ -9562,13 +9563,13 @@ textarea.form-control-lg {
   content: ""; }
 
 .burger:before {
-  top: 4px; }
+  top: 9px; }
 
 .burger span {
-  top: 15px; }
+  top: 16px; }
 
 .burger:after {
-  top: 26px; }
+  top: 23px; }
 
 /* Hover */
 .burger:hover:before {
@@ -9669,12 +9670,12 @@ textarea {
   transform: translate(-50%, -50%); } */
 
 .menu-bg-wrap {
-  background-color: #005555;
+  background-color: #00ADB5;
   padding: 20px 30px;
   position: relative;
   float: left;
   width: 100%;
-  border-radius: 7px;
+  border-radius: 5px;
   -webkit-box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1);
   box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1); }
 
@@ -9683,7 +9684,7 @@ textarea {
   background-size: cover;
   background-position: cnter center;
   background-repeat: no-repeat;
-  background-color: #00204a; }
+  background-color: #222831; }
   .hero.overlay {
     position: relative; }
     .hero.overlay:before {
@@ -9811,7 +9812,7 @@ textarea {
   -o-transition: .3s all ease;
   transition: .3s all ease; }
   .btn.btn-primary {
-    background: #005555;
+    background: #00ADB5;
     color: #fff; }
   .btn:hover {
     top: -2px;
@@ -9966,7 +9967,7 @@ textarea {
   padding-top: 10rem; }
 
 .section-4 {
-  background-color: #fff; }
+  background-color: #393E46; }
   .section-4 .img-about {
     background-size: cover;
     background-position: center center; }
@@ -10338,7 +10339,7 @@ nav[aria-label="breadcrumb"] li:before {
   font-size: 14px; }
 
 .site-footer {
-  background: #efefef;
+  background: #393E46;
   font-size: 14px;
   color: #888;
   padding: 70px 0; }
