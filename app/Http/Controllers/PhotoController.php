@@ -87,7 +87,7 @@ class PhotoController extends Controller
     }
         Photo::create($validatedData);
 
-        return redirect('dashboard/posts')->with('success', 'New post has been added!');
+        return redirect('dashboard/photoss')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -178,7 +178,7 @@ class PhotoController extends Controller
         Photo::where('id', $photo->id)
             ->update($validatedData);
 
-        return redirect('dashboard/posts')->with('success', 'Data berhasil diubah!');
+        return redirect('dashboard/photos')->with('success', 'Data berhasil diubah!');
     }
 
     /**

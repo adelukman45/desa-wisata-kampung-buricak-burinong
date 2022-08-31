@@ -89,7 +89,7 @@ class DashboardPostController extends Controller
     }
         Wst::create($validatedData);
 
-        return redirect('dashboard/posts')->with('success', 'NData berhasil ditambahkan!');
+        return redirect('dashboard/posts')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
