@@ -61,8 +61,8 @@
                                 class="img-fluid mt-3">
                         @endif</td>
                         <td>
-                            <a href="/dashboard/photos/{{ $post->slug }}/edit" class="badge bg-warning py-2 px-2 text-decoration-none"><i class="bi bi-pencil "></i></a>
-                            <form action="/dashboard/photos/{{ $post->slug }}" method="post" class="d-inline">
+                            <a href="/dashboard/photos/{{ $post->id }}/edit" class="badge bg-warning py-2 px-2 text-decoration-none"><i class="bi bi-pencil "></i></a>
+                            <form action="/dashboard/photos/{{ $post->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0 py-2 px-2 mt-1" onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"></i></button>

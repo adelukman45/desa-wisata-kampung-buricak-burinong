@@ -32,7 +32,7 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Gambar Wisata</label>
-                <img class="img-preview img-fluid mb-3 col-sm-5">
+                {{-- <img class="img-preview img-fluid mb-3 col-sm-5"> --}}
             </div>
             <div class="mb-3">
                 @if ($post->image)
@@ -41,8 +41,6 @@
                 @elseif ($post->link)
                     <img src="{{ $post->link }}"
                         class="img-preview img-fluid mb-3 col-sm-5 d-block">
-                @else
-                    <img class="img-preview img-fluid mb-3 col-sm-5">
                  @endif
                 </div>
                 <div class="input-group mb-3">

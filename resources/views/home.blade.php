@@ -126,7 +126,7 @@
           <div class="row">
             @foreach ($posts as $wst)
                 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-4">
               <div class="property-item">
                 <div class="property-content text-center" >
                 <a href="/detail/{{ $wst->slug }}" class="img">
@@ -144,7 +144,7 @@
                   @endif
                 </a>
   
-                    <span class="city d-block mb-3">{{ $wst->name }}</span>
+                    <span class="city d-block">{{ $wst->name }}</span>
                     <span class="d-block mb-2 text-black-50"
                       >{{ $wst->alamat }}</span
                       >

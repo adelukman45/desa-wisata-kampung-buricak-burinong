@@ -29,20 +29,13 @@ Route::get('/sejarah', function(){
 
 Route::get('dashboard/photos/create/{slug}', [PhotoController::class, 'create'])->middleware('auth');
 
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'Post Categories',
-        'active' => 'categories',
-        'categories' => Category::all()
-    ]);
-});
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
+// Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+// Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');

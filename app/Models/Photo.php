@@ -12,10 +12,7 @@ class Photo extends Model
 
     protected $guarded = ['id'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+
 
     public function sluggable(): array
     {

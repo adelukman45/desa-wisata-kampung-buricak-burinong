@@ -38,7 +38,7 @@
             <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <button class="btn btn-danger border-0 mt-1 px-3" onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"></i> Delete</button>
+                <button class="btn btn-danger border-0 mt-1 px-3" onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"></i> Hapus</button>
             </form>
         </div>
     </div>

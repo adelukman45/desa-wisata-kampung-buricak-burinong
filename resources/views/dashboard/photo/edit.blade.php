@@ -6,7 +6,9 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="POST" action="/dashboard/photos" class="mb-5" enctype="multipart/form-data">
+        <form method="POST" action="/dashboard/photos/{{ $wst->id }}" class="mb-5"
+            enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Wisata</label>
@@ -21,8 +23,8 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" required readonly
+                {{-- <label for="slug" class="form-label">Slug</label> --}}
+                <input type="hidden" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" required readonly
                     value="{{ old('slug', $wst->slug) }}">
                 @error('slug')
                     <div class="invalid-feedback">
@@ -32,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Gambar Wisata</label>
-                <img class="img-preview img-fluid mb-3 col-sm-5">
+                {{-- <img class="img-preview img-fluid mb-3 col-sm-5"> --}}
             </div>
             <div class="mb-3">
                 @if ($wst->image)

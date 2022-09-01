@@ -129,6 +129,7 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Wst $post)
     {
+        // dd($request);
         $rules = [
             'name' => 'required|max:255',
             'slug' => 'required|unique:wsts',
@@ -136,28 +137,21 @@ class DashboardPostController extends Controller
             'desc' => 'required'
         ];
 
-        if($request->link != null && $request->file('image') != null) {
-            $rules = [
-                'image' => 'same:link',
-                'link' => 'same:image',
-            ];
-        }
-        elseif($request->link == null && $request->file('image') == null) {
+
+        // if($post->link != null && $request->file('image') != null) {
+        //     $rules = [
+        //         'image' => 'same:link',
+        //         'link' => 'same:image',
+        //     ];
+        // }
+        if($request->link == null && $request->file('image') == null) {
             $rules = [
             'image' => 'required',
             'link' => 'required',
         ];
         }
-        elseif($request->link == null) {
-           $rules = [
-            'name' => 'required|max:255',
-            // 'slug' => 'required|unique:wsts',
-            'image' => 'required|image|file|max:3072',
-            'alamat' => 'required',
-            'desc' => 'required'
-        ];      
-    }
-    else{
+        
+    elseif($request->image == null && $request->link != null){
        $rules = [
             'name' => 'required|max:255',
             // 'slug' => 'required|unique:wsts',
@@ -165,25 +159,52 @@ class DashboardPostController extends Controller
             'alamat' => 'required',
             'desc' => 'required'
         ];
-    }
-
+        
         if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:wsts';
         }
-
+        
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|unique:wsts';
+        }
         $validatedData = $request->validate($rules);
-
+        $validatedData['image'] = '';
         if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('post-images');
+        }    
+        
+            Wst::where('id', $post->id)
+            ->update($validatedData); 
+    
+            
+    }
+    else {
+        $rules = [
+         'name' => 'required|max:255',
+         // 'slug' => 'required|unique:wsts',
+         'image' => 'required|image|file|max:3072',
+         'alamat' => 'required',
+         'desc' => 'required'
+     ];  
+     if ($request->slug != $post->slug) {
+         $rules['slug'] = 'required|unique:wsts';
         }
-
-
-        Wst::where('id', $post->id)
-            ->update($validatedData);
-
+        $validatedData = $request->validate($rules);
+        $validatedData['link'] = '';
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+     }    
+     
+         Wst::where('id', $post->id)
+         ->update($validatedData); 
+     
+    }
         return redirect('dashboard/posts')->with('success', 'Data berhasil diubah!');
     }
 

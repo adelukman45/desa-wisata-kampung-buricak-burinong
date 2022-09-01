@@ -126,46 +126,27 @@ class PhotoController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'slug' => 'required',
-            'alamat' => 'required',
-            'desc' => 'required'
+
         ];
 
-        if($request->link != null && $request->file('image') != null) {
-            $rules = [
-                'image' => 'same:link',
-                'link' => 'same:image',
-            ];
-        }
-        elseif($request->link == null && $request->file('image') == null) {
+
+        if($request->link == null && $request->file('image') == null) {
             $rules = [
             'image' => 'required',
             'link' => 'required',
         ];
         }
-        elseif($request->link == null) {
-           $rules = [
-            'name' => 'required|max:255',
-            'slug' => 'required',
-            'image' => 'required|image|file|max:3072',
-            'alamat' => 'required',
-            'desc' => 'required'
-        ];      
-    }
-    else{
-       $rules = [
-            'name' => 'required|max:255',
-            'slug' => 'required',
-            'link' => 'required|max:255|url',
-            'alamat' => 'required',
-            'desc' => 'required'
+        elseif($request->image == null && $request->link != null){
+            $rules = [
+            'link' => 'required',
         ];
-    }
-
         if ($request->slug != $photo->slug) {
             $rules['slug'] = 'required';
         }
 
         $validatedData = $request->validate($rules);
+        $validatedData['image'] = '';
+
 
         if ($request->file('image')) {
             if ($request->oldImage) {
@@ -177,6 +158,33 @@ class PhotoController extends Controller
 
         Photo::where('id', $photo->id)
             ->update($validatedData);
+        }
+    else{
+       $rules = [
+            'name' => 'required|max:255',
+            'slug' => 'required',
+            'image' => 'required|image|file|max:3072',
+        ];
+
+
+        if ($request->slug != $photo->slug) {
+            $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+        $validatedData['link'] = '';
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+
+        Photo::where('id', $photo->id)
+            ->update($validatedData);
+    }
 
         return redirect('dashboard/photos')->with('success', 'Data berhasil diubah!');
     }

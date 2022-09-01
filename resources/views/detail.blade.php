@@ -1,39 +1,39 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-          <span class="icofont-close js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close">
+      <span class="icofont-close js-menu-toggle"></span>
     </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
 
-    <nav class="site-nav">
-      <div class="container">
-        <div class="menu-bg-wrap">
-          <div class="site-navigation">
-            <a href="/" class="logo m-0 float-start">Kampung Buricak Burinong</a>
+<nav class="site-nav">
+  <div class="container">
+    <div class="menu-bg-wrap">
+      <div class="site-navigation">
+        <a href="/" class="logo m-0 float-start">Kampung Buricak Burinong</a>
 
-            <ul
-              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
-            >
-              <li class="active"><a href="/">Kembali</a></li>
-            </ul>
 
-            <a
-              href="#"
-              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
-              data-toggle="collapse"
-              data-target="#main-navbar"
-            >
-              <span></span>
-            </a>
-          </div>
-        </div>
+        <ul
+          class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+        >
+          <li class="active"><a href="/">Kembali</a></li>
+        </ul>
+        <a
+          href="#"
+          class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+          data-toggle="collapse"
+          data-target="#main-navbar"
+        >
+          <span></span>
+        </a>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
 
     <div
       class="hero page-inner overlay"
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4"align="justify">
             <h2 class="heading text-primary">{{ $post->name }}</h2>
             <p class="meta">{{ $post->alamat }}</p>
             <p class="text-black-50">
@@ -121,13 +121,9 @@
             <div class="property-item">
               <div class="property-content" >
                 @if ($wst->image)
-                <div>
                     <img src="{{ asset('storage/' . $wst->image) }}" alt="{{ $wst->name }}" class="img-fluid mt-3">
-                </div>
                 @elseif ($wst->link)
-                    <div>
                         <img src="{{ $wst->link }}" alt="{{ $wst->name }}" class="img-fluid mt-3">
-                    </div>
                 @else
                     <p>Tidak ada foto lainnya.</p>
                 @endif
@@ -141,6 +137,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>    
 
 @endsection
